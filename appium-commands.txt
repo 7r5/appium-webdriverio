@@ -1,0 +1,25 @@
+appium hacks
+
+run tests webdriverio
+	npx wdio 
+	npx wdio config/wdio.android.conf.js
+	npx wdio config/wdio.android.bs.conf.js
+
+run appium
+	appium --base-path /wd/hub --port 4723 --allow-cors
+
+
+kill by PID
+	netstat -ano | findstr :4723
+	taskkill /PID 8084 /F
+
+
+click
+expect().toExist().toHaveText('')
+driver.pause(2000)
+driver.startActivity('package','package+activity')
+
+
+browserstack cred:
+	ricardoarreolama_8SfHow
+	cCa2ysbMitSjCRqhyVgX
