@@ -7,7 +7,6 @@ exports.config = {
   // commented as it is not needed for browserstack
   // runner: 'local',
   // path: '/wd/hub',
-  
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -95,10 +94,12 @@ exports.config = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: ['spec'],
-
-
-
+  reporters: ['spec',
+    ['allure', {
+      outputDir: 'allure-results',
+      disableWebdriverStepsReporting: false,
+      disableWebdriverScreenshotsReporting: false,
+    }]],
   //
   // Options to be passed to Mocha.
   // See the full list at http://mochajs.org/

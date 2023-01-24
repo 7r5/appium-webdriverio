@@ -18,6 +18,14 @@ click
 expect().toExist().toHaveText('')
 driver.pause(2000)
 driver.startActivity('package','package+activity')
+driver.getContext();
+driver.getContexts();
+driver.switchContext();
+
+await driver.waitUntil(async () => {
+	const contexts = await driver.getContexts();
+	return contexts.length > 1;
+}, {timeout: 30000, timeoutMsg: 'timed out while waiting for webview context'});
 
 
 browserstack cred:
