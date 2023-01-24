@@ -8,13 +8,13 @@ jobs:
           uses: actions/checkout@v2
         - uses: actions/setup-node@v1
           with:
-            node-version: 18
+            node-version: 16
         - name: Install
           run: npm install
         - name: Test
           env:
-            BROWSERSTACK_USERNAME=${{secrects.BS_USER}}
-            BROWSERSTACK_ACCESS_KEY=${{secrects.BS_KEY}}
+            BROWSERSTACK_USERNAME=${{secrets.BS_USER}}
+            BROWSERSTACK_ACCESS_KEY=${{secrets.BS_KEY}}
           run: npx wdio config/wdio.android.bs.conf.js --spec test\specs\android\add-note.spec.js
         - uses: actions/upload-artifact@v1
           if: failure()
